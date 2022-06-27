@@ -50,10 +50,25 @@
     </li>
     <li class="nav-item {{ (request()->is('finance*')) ? 'active' : '' }}">
         <a class="nav-link" href="#" data-toggle="modal" data-target="#financeModal">
-            <i class="fa-solid fa-money-check-dollar"></i>
+            <i class="fa-solid fa-money-check"></i>
             <span>รายงานลูกหนี้</span>
         </a>
     </li>
+    {{-- <li class="nav-item">
+        <a class="nav-link {{ (request()->is('statement/*')) ? '' : 'collapsed' }}" href="#" data-toggle="collapse" data-target="#collapseSta"
+            aria-expanded="true" aria-controls="collapseSta">
+            <i class="fa-solid fa-comments-dollar"></i>
+            <span>รายงานยอดเงินโอน</span>
+        </a>
+        <div id="collapseSta" class="collapse {{ (request()->is('statement/*')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item text-xs {{ (request()->is('statement/ofc*')) ? 'active' : '' }}" href="{{ route('statement','ofc') }}">สิทธิ์ข้าราชการเบิกได้จ่ายตรง</a>
+                <a class="collapse-item text-xs {{ (request()->is('statement/lgo*')) ? 'active' : '' }}" href="{{ route('statement','lgo') }}">สิทธิ์ข้าราชการ อปท.</a>
+                <a class="collapse-item text-xs {{ (request()->is('statement/opa*')) ? 'active' : '' }}" href="{{ route('statement','opa') }}">สิทธิ์ UC (OP-AnyWhere)</a>
+                <a class="collapse-item text-xs {{ (request()->is('statement/sso*')) ? 'active' : '' }}" href="{{ route('statement','sso') }}">สิทธิ์ประกันสังคม</a>
+            </div>
+        </div>
+    </li> --}}
 </ul>
 <!-- End of Sidebar -->
 

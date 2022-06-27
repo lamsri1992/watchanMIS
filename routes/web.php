@@ -28,4 +28,5 @@ Route::group(['prefix' => 'opd'], function () {
 
 Route::group(['prefix' => 'finance'], function () {
 	Route::get('/report','finance@report')->name('searchFinance');
+	Route::get('/statement/{id}','finance@statement')->name('statement');
 });

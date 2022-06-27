@@ -73,4 +73,9 @@ class finance extends Controller
         // dd($data);
         return view('finance.report',['data'=>$data]);
     }
+
+    public function statement(Request $request,$id)
+    {
+        dd($id);
+    }
 }
