@@ -30,3 +30,7 @@ Route::group(['prefix' => 'finance'], function () {
 	Route::get('/report','finance@report')->name('searchFinance');
 	Route::get('/statement/{id}','finance@statement')->name('statement');
 });
+
+Route::group(['prefix' => 'supplies'], function () {
+	Route::get('/','supplies@index');
+});

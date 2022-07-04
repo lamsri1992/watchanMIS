@@ -16,8 +16,8 @@
                         <thead class="thead-dark">
                             <tr class="text-center">
                                 <th>วันที่</th>
-                                {{-- <th>เลขบัตร</th> --}}
                                 <th>HN</th>
+                                <th>VN</th>
                                 <th class="text-left">ผู้ป่วย</th>
                                 <th class="text-left">สิทธิ์รักษา</th>
                                 <th class="">กลุ่มสิทธิ์</th>
@@ -32,7 +32,7 @@
                             @php $cost += $res->visit_cost @endphp
                             <tr class="text-center">
                                 <td>{{ $res->visit_date }}</td>
-                                {{-- <td>{{ $res->visit_pid }}</td> --}}
+                                <td>{{ $res->visit_vn }}</td>
                                 <td>{{ $res->visit_hn }}</td>
                                 <td class="font-weight-bold text-left">{{ $res->visit_patient }}</td>
                                 <td class="text-left">{{ $res->visit_plan }}</td>
@@ -49,7 +49,7 @@
                         </tbody>
                         <tfoot>
                             <tr class="font-weight-bolder">
-                                <td class="text-center" colspan="8" style="font-size: 16px;">
+                                <td class="text-center" colspan="9" style="font-size: 16px;">
                                     รวมค่ารักษาพยาบาล 
                                     {{ number_format($cost,2)." ฿" }}
                                 </td>

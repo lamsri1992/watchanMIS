@@ -17,10 +17,20 @@ class finance extends Controller
         $eYear = date("Y",strtotime($request->end))+543;
         $eNew = $eYear.$end;
 
+        if($request->plan){
+            $arr_select = array();
+            foreach($request->plan as $plan){
+                $arr_select[] = $plan;
+            }
+            $plans = "'".implode("','",$arr_select)."'";
+        }else{
+            $plans = "";
+        }
+
         if($request->fi_type == 0 || $request->fi_type == 1)
         {
             $data = DB::select("SELECT query1.dateVisit AS visit_date,query1.patient_pid AS visit_pid,
-                query1.visit_hn AS visit_hn,query1.contract_plans_description as visit_plan,
+                query1.visit_hn AS visit_hn,query1.visit_vn AS visit_vn,query1.contract_plans_description as visit_plan,
                 query1.plan_main as visit_plan_main,
                 query1.patient_prefix_description || '' || query1.patient_firstname || ' ' || query1.patient_lastname AS visit_patient,
                 query1.sex_description AS visit_gender,query1.visit_patient_age AS visit_age,query1.diag_icd10_number AS visit_icd10,
@@ -53,7 +63,7 @@ class finance extends Controller
                 AND t_visit_payment.visit_payment_active = '1'
                 AND t_visit_payment.visit_payment_priority = '0'
                 AND t_billing.billing_active = '1'
-                AND r_plan_group.r_plan_group_id = '$request->fi_group'
+                AND r_plan_group.r_plan_group_id IN ($plans)
                 AND (SUBSTRING(t_visit.visit_begin_visit_time,1,10) BETWEEN ('$sNew') AND ('$eNew'))
             GROUP BY 
                 t_visit.t_visit_id,f_patient_prefix.patient_prefix_description,t_patient.patient_firstname

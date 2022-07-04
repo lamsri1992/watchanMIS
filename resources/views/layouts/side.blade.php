@@ -50,11 +50,11 @@
     </li>
     <li class="nav-item {{ (request()->is('finance*')) ? 'active' : '' }}">
         <a class="nav-link" href="#" data-toggle="modal" data-target="#financeModal">
-            <i class="fa-solid fa-money-check"></i>
-            <span>รายงานลูกหนี้</span>
+            <i class="fa-solid fa-fw fa-comment-dollar"></i>
+            <span>รายงานข้อมูลลูกหนี้</span>
         </a>
     </li>
-    {{-- <li class="nav-item">
+    <li class="nav-item">
         <a class="nav-link {{ (request()->is('statement/*')) ? '' : 'collapsed' }}" href="#" data-toggle="collapse" data-target="#collapseSta"
             aria-expanded="true" aria-controls="collapseSta">
             <i class="fa-solid fa-comments-dollar"></i>
@@ -68,6 +68,12 @@
                 <a class="collapse-item text-xs {{ (request()->is('statement/sso*')) ? 'active' : '' }}" href="{{ route('statement','sso') }}">สิทธิ์ประกันสังคม</a>
             </div>
         </div>
+    </li>
+    {{-- <li class="nav-item {{ (request()->is('/supplies')) ? 'active' : '' }}">
+        <a class="nav-link" href="{{ url('/supplies') }}">
+            <i class="fa-solid fa-fw fa-box"></i>
+            <span>รายงานข้อมูลพัสดุ</span>
+        </a>
     </li> --}}
 </ul>
 <!-- End of Sidebar -->
@@ -96,8 +102,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <select name="fi_group" class="custom-select" required>
-                            <option value="">-- เลือกกลุ่มสิทธิ์ --</option>
+                        <select name="plan[]" class="basic-multiple" multiple="multiple" required>
                             @foreach ($plans as $res)
                             <option value="{{ $res->r_plan_group_id }}">{{ $res->plan_group_description }}</option>
                             @endforeach
