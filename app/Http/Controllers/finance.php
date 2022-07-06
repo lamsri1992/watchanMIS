@@ -58,7 +58,7 @@ class finance extends Controller
             LEFT JOIN r_plan_group_map_pttype ON b_contract_plans.contract_plans_pttype = r_plan_group_map_pttype.plan_group_map_pttype_pttype
 			LEFT JOIN r_plan_group on r_plan_group.r_plan_group_id = r_plan_group_map_pttype.r_plan_group_id
             WHERE
-                t_visit.f_visit_status_id <> '4'
+                t_visit.f_visit_status_id = '3'
                 AND t_visit.f_visit_type_id = '$request->fi_type'
                 AND t_visit_payment.visit_payment_active = '1'
                 AND t_visit_payment.visit_payment_priority = '0'
