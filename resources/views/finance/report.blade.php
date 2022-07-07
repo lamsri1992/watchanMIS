@@ -32,8 +32,8 @@
                             @php $cost += $res->visit_cost @endphp
                             <tr class="text-center">
                                 <td>{{ $res->visit_date }}</td>
-                                <td>{{ $res->visit_vn }}</td>
                                 <td>{{ $res->visit_hn }}</td>
+                                <td>{{ $res->visit_vn }}</td>
                                 <td class="font-weight-bold text-left">{{ $res->visit_patient }}</td>
                                 <td class="text-left">{{ $res->visit_plan }}</td>
                                 <td class="">{{ $res->visit_plan_main }}</td>

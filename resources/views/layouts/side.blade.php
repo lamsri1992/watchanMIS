@@ -69,12 +69,12 @@
             </div>
         </div>
     </li>
-    {{-- <li class="nav-item {{ (request()->is('/supplies')) ? 'active' : '' }}">
+    <li class="nav-item {{ (request()->is('/supplies')) ? 'active' : '' }}">
         <a class="nav-link" href="{{ url('/supplies') }}">
             <i class="fa-solid fa-fw fa-box"></i>
             <span>รายงานข้อมูลพัสดุ</span>
         </a>
-    </li> --}}
+    </li>
 </ul>
 <!-- End of Sidebar -->
 
@@ -98,7 +98,6 @@
                             <option value="">-- เลือกรายงาน --</option>
                             <option value="1">รายงานลูกหนี้ผู้ป่วยใน</option>
                             <option value="0">รายงานลูกหนี้ผู้ป่วยนอก</option>
-                            {{-- <option value="3">รายงานลูกหนี้แยกตามสิทธิ์</option> --}}
                         </select>
                     </div>
                     <div class="form-group">
