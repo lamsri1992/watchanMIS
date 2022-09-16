@@ -22,7 +22,7 @@
                                         <div class="col-auto">
                                             <a href="#">
                                                 <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                                                    {{ count($all) }} รายการ
+                                                    {{ number_format(count($all)) }} รายการ
                                                 </div>
                                             </a>
                                         </div>
@@ -47,7 +47,7 @@
                                         <div class="col-auto">
                                             <a href="{{ url('/claim/list') }}">
                                                 <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                                                    {{ count($list) }} รายการ
+                                                    {{ number_format(count($list)) }} รายการ
                                                 </div>
                                             </a>
                                         </div>
@@ -72,7 +72,7 @@
                                         <div class="col-auto">
                                             <a href="#">
                                                 <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                                                    {{ count($res) }} รายการ
+                                                    {{ number_format(count($res)) }} รายการ
                                                 </div>
                                             </a>
                                         </div>
@@ -97,7 +97,7 @@
                                         <div class="col-auto">
                                             <a href="#">
                                                 <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                                                    {{ count($lost) }} รายการ
+                                                    {{ number_format(count($lost)) }} รายการ
                                                 </div>
                                             </a>
                                         </div>
