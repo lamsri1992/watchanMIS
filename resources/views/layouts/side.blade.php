@@ -48,13 +48,45 @@
             </div>
         </div>
     </li>
+    <li class="nav-item">
+        <a class="nav-link {{ (request()->is('report*')) ? '' : 'collapsed' }}" href="#" data-toggle="collapse" data-target="#collapseSta"
+            aria-expanded="true" aria-controls="collapseSta">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+            <span>ศูนย์จัดเก็บรายได้</span>
+        </a>
+        <div id="collapseSta" class="collapse {{ (request()->is('report*') || request()->is('claim*')) ? 'show' : '' }}" 
+            aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item text-xs {{ (request()->is('report') || request()->is('report/process')) ? 'active' : '' }}"
+                    href="{{ route('report.index') }}">
+                    ข้อมูลการเข้ารับบริการ
+                </a>
+                <a class="collapse-item text-xs {{ (request()->is('claim*')) ? 'active' : '' }}"
+                    href="{{ route('claim.index') }}">
+                    รายการเคลมค่ารักษาพยาบาล
+                </a>
+                <a class="collapse-item text-xs" href="http://172.20.55.254:8850/RPClient/index/">
+                    Report Center 3.9
+                </a>
+                <a class="collapse-item text-xs" href="https://www.newcb.ktb.co.th/">
+                    Report KTB Corporate
+                </a>
+            </div>
+        </div>
+    </li>
     <li class="nav-item {{ (request()->is('finance*')) ? 'active' : '' }}">
         <a class="nav-link" href="#" data-toggle="modal" data-target="#financeModal">
             <i class="fa-solid fa-fw fa-comment-dollar"></i>
             <span>รายงานข้อมูลลูกหนี้</span>
         </a>
     </li>
-    <li class="nav-item">
+    {{-- <li class="nav-item {{ (request()->is('visit*')) ? 'active' : '' }}">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#visitModal">
+            <i class="fa-solid fa-fw fa-hospital"></i>
+            <span>ข้อมูลการเข้ารับบริการ</span>
+        </a>
+    </li> --}}
+    {{-- <li class="nav-item">
         <a class="nav-link {{ (request()->is('statement/*')) ? '' : 'collapsed' }}" href="#" data-toggle="collapse" data-target="#collapseSta"
             aria-expanded="true" aria-controls="collapseSta">
             <i class="fa-solid fa-comments-dollar"></i>
@@ -68,13 +100,13 @@
                 <a class="collapse-item text-xs {{ (request()->is('statement/sso*')) ? 'active' : '' }}" href="{{ route('statement','sso') }}">สิทธิ์ประกันสังคม</a>
             </div>
         </div>
-    </li>
-    <li class="nav-item {{ (request()->is('/supplies')) ? 'active' : '' }}">
+    </li> --}}
+    {{-- <li class="nav-item {{ (request()->is('/supplies')) ? 'active' : '' }}">
         <a class="nav-link" href="{{ url('/supplies') }}">
             <i class="fa-solid fa-fw fa-box"></i>
             <span>รายงานข้อมูลพัสดุ</span>
         </a>
-    </li>
+    </li> --}}
 </ul>
 <!-- End of Sidebar -->
 
@@ -126,6 +158,71 @@
                             </div>
                             <input type="text" class="form-control basicDate" name="end" placeholder="วันที่สิ้นสุด" readonly required>
                         </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-success btn-sm">
+                            <i class="fa-solid fa-search"></i>
+                            ค้นหาข้อมูล
+                        </button>
+                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">
+                            <i class="fa-solid fa-times-circle"></i>
+                            ปิดหน้าต่าง
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@php
+    $a_mthai[1] = 'มกราคม';
+    $a_mthai[2] = 'กุมภาพันธ์';
+    $a_mthai[3] = 'มีนาคม';
+    $a_mthai[4] = 'เมษายน';
+    $a_mthai[5] = 'พฤษภาคม';
+    $a_mthai[6] = 'มิถุนายน';
+    $a_mthai[7] = 'กรกฎาคม';
+    $a_mthai[8] = 'สิงหาคม';
+    $a_mthai[9] = 'กันยายน ';
+    $a_mthai[10] = 'ตุลาคม';
+    $a_mthai[11] = 'พฤศจิกายน';
+    $a_mthai[12] = 'ธันวาคม';
+@endphp
+<!-- Visit Modal -->
+<div class="modal fade" id="visitModal" tabindex="-1" aria-labelledby="visitModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="visitModalLabel">
+                    <i class="fa-solid fa-hospital"></i>
+                    ข้อมูลการเข้ารับบริการ
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('searchVisit') }}">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <select name="m_visit" class="custom-select" required>
+                            <option value="">-- เลือกเดือน --</option>
+                            @php
+                                for($i=1;$i<=12;$i++){
+                                    echo "<option value='$i'>$a_mthai[$i]</option>";
+                                }
+                            @endphp
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select name="y_visit" class="custom-select" required>
+                            <option value="">-- เลือกปี พ.ศ. --</option>
+                            <option value="2565">2565</option>
+                            <option value="2564">2564</option>
+                            <option value="2563">2563</option>
+                        </select>
                     </div>
                 </div>
                 <div class="modal-footer">
