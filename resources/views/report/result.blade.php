@@ -11,61 +11,63 @@
                     </h6>
                 </div>
                 <div class="row">
-                    <div class="card-body" style="font-size: 14px;">
-                        <div class="alert alert-primary" role="alert">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <span class="font-weight-bold">
-                                        <i class="fa-regular fa-calendar-check"></i>
-                                        วันที่
-                                    </span>
-                                    <ul>
-                                        <li>
-                                            {{ DateThai($_REQUEST['start']) ." ถึง ".DateThai($_REQUEST['end']) }}
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-2">
-                                    <span class="font-weight-bold">
-                                        <i class="fa-regular fa-square-check"></i>
-                                        สิทธิ์ที่เลือก
-                                    </span>
-                                    <ul>
-                                        @foreach ($splan as $plan)
-                                            <li>{{ $plan->contract_plans_description }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                                <div class="col-md-2">
-                                    <i class="fa-regular fa-rectangle-xmark"></i>
-                                    <span class="font-weight-bold">ICD10 ที่คัดออก</span>
-                                    @php $icd = explode(",",$icds); @endphp
-                                    <ul>
-                                        @foreach ($icd as $res)
-                                            <li>{{ $res }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                                <div class="col-md-2">
-                                    <i class="fa-regular fa-rectangle-xmark"></i>
-                                    <span class="font-weight-bold">ICD10 ที่ระบุ</span>
-                                    @php $gicd = explode(",",$gicds); @endphp
-                                    <ul>
-                                        @foreach ($gicd as $res)
-                                            <li>{{ $res }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                                <div class="col-md-2">
-                                    <i class="fa-regular fa-hospital"></i>
-                                    <span class="font-weight-bold">ประเภทผู้ป่วย</span>
-                                    <ul>
-                                        @if ($_REQUEST['vtype'] == 0)
-                                        <li>ผู้ป่วยนอก</li>
-                                        @else
-                                        <li>ผู้ป่วยใน</li>
-                                        @endif
-                                    </ul>
+                    <div class="col-xl-12 col-lg-12">
+                        <div class="card-body" style="font-size: 14px;">
+                            <div class="alert alert-success" role="alert">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <span class="font-weight-bold">
+                                            <i class="fa-regular fa-calendar-check"></i>
+                                            วันที่
+                                        </span>
+                                        <ul>
+                                            <li>
+                                                {{ DateThai($_REQUEST['start']) ." ถึง ".DateThai($_REQUEST['end']) }}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <span class="font-weight-bold">
+                                            <i class="fa-regular fa-square-check"></i>
+                                            สิทธิ์ที่เลือก
+                                        </span>
+                                        <ul>
+                                            @foreach ($splan as $plan)
+                                                <li>{{ $plan->contract_plans_description }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <i class="fa-regular fa-rectangle-xmark"></i>
+                                        <span class="font-weight-bold">ICD10 ที่คัดออก</span>
+                                        @php $icd = explode(",",$icds); @endphp
+                                        <ul>
+                                            @foreach ($icd as $res)
+                                                <li>{{ $res }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <i class="fa-regular fa-check-square"></i>
+                                        <span class="font-weight-bold">ICD10 ที่ระบุ</span>
+                                        @php $gicd = explode(",",$gicds); @endphp
+                                        <ul>
+                                            @foreach ($gicd as $res)
+                                                <li>{{ $res }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <i class="fa-regular fa-hospital"></i>
+                                        <span class="font-weight-bold">ประเภทผู้ป่วย</span>
+                                        <ul>
+                                            @if ($_REQUEST['vtype'] == 0)
+                                            <li>ผู้ป่วยนอก</li>
+                                            @else
+                                            <li>ผู้ป่วยใน</li>
+                                            @endif
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <div class="row" style="margin-bottom: 1rem;">
         <div class="col-xl-12 col-lg-12">
-            <div  style="margin-bottom: 1rem;">
+            <div style="margin-bottom: 1rem;">
                 <h6 class="m-0 font-weight-bold text-dark">
                     <i class="fa-solid fa-clipboard-check"></i>
                     สรุปยอดรายการเคลมค่ารักษาพยาบาล
@@ -121,7 +121,7 @@
                     </h6>
                 </div>
                 <div class="card-body">
-                    <table class="table table-borderless table-striped tableExport">
+                    <table class="table table-borderless table-striped tableExport" style="font-size: 14px;">
                         <thead class="thead-dark">
                             <tr class="text-center">
                                 <th>วันที่</th>

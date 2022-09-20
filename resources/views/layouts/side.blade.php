@@ -65,10 +65,10 @@
                     href="{{ route('claim.index') }}">
                     รายการเคลมค่ารักษาพยาบาล
                 </a>
-                <a class="collapse-item text-xs" href="http://172.20.55.254:8850/RPClient/index/">
+                <a class="collapse-item text-xs" href="http://172.20.55.254:8850/RPClient/index/" target="_blank">
                     Report Center 3.9
                 </a>
-                <a class="collapse-item text-xs" href="https://www.newcb.ktb.co.th/">
+                <a class="collapse-item text-xs" href="https://www.newcb.ktb.co.th/" target="_blank">
                     Report KTB Corporate
                 </a>
             </div>
